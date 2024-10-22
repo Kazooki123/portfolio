@@ -86,7 +86,10 @@ export default function Portfolio() {
         <div className="absolute inset-0 bg-black opacity-50 z-[1]"></div>
         <div className="container mx-auto px-4 relative z-[2]">
           <h1 className="text-5xl font-bold text-center text-white">
-            StarloExoliz Portfolio
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-cyan-500">
+              StarloExoliz&apos;s
+            </span>{" "}
+            Portfolio
           </h1>
         </div>
       </header>
@@ -108,6 +111,11 @@ export default function Portfolio() {
                 title: "Web Developer",
                 description:
                   "Passionate about creating responsive and user-friendly websites.",
+              },
+              {
+                title: "Linux User",
+                description:
+                  "I use Arch btw. Just kidding but I do use both Arch and Ubuntu :)",
               },
               {
                 title: "Uses Multiple Programming Languages",
