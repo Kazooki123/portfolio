@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/themes/theme-toggle";
+import { PortfolioScene } from './PortfolioScene'
 import Image from "next/image";
 import Link from "next/link";
 
@@ -223,6 +224,17 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      {/* 3D Scene Section */}
+      <section className="relative py-16 bg-gradient-to-b from-black via-background to-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-semibold mb-8 text-center flex items-center justify-center gap-2">
+            My Tech Universe <span className="text-2xl">🌌</span>
+          </h2>
+          <PortfolioScene />
+        </div>
+      </section>
+
     </div>
   );
 }
