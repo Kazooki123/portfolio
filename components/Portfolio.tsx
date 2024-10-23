@@ -83,67 +83,88 @@ export default function Portfolio() {
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-black opacity-50 z-[1]"></div>
+        <div className="absolute inset-0 bg-black/50 z-[1]"></div>
         <div className="container mx-auto px-4 relative z-[2]">
-          <h1 className="text-5xl font-bold text-center text-white">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-cyan-500">
+          <h1 className="text-5xl font-bold text-center">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 animate-gradient">
               StarloExoliz&apos;s
             </span>{" "}
-            Portfolio
+            <span className="text-white">Portfolio</span>
           </h1>
         </div>
       </header>
 
       {/* About Me Section */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      <section className="relative py-12">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hypnodancer.gif"
+            alt="Background Animation"
+            fill
+            className="object-cover opacity-20"
+            unoptimized
+          />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl font-semibold mb-8 text-center">
             About Me! :3
           </h2>
-          <p className="text-xl text-center mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-center mb-8 max-w-2xl mx-auto backdrop-blur-sm bg-background/30 p-6 rounded-lg">
             Hi and my name is StarloExoliz, I am a Programmer, Student and love
             to play Games in my free time. I love to adventure into the world of
             A.I and Game Development.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 title: "Web Developer",
                 description:
                   "Passionate about creating responsive and user-friendly websites.",
+                icon: "🌐",
               },
               {
                 title: "Linux User",
                 description:
                   "I use Arch btw. Just kidding but I do use both Arch and Ubuntu :)",
+                icon: "🐧",
               },
               {
                 title: "Uses Multiple Programming Languages",
                 description:
                   "Not always but I tend to code in C++, C, Python, Rust, Ruby, Javascript, Typescript, Zig, Go and Kotlin. I sometimes use the Dart language.",
+                icon: "👨‍💻",
               },
               {
                 title: "Problem Solver",
                 description:
                   "Enjoys tackling complex challenges and finding elegant solutions.",
+                icon: "🧩",
               },
               {
                 title: "Continuous Learner",
                 description:
                   "Always eager to learn new technologies and improve my skills.",
+                icon: "📚",
               },
               {
                 title: "Experiences",
                 description:
                   "I have Experiences in the field of Web development, Machine Learning, Game Development, App Development and even Database Development!",
+                icon: "💼",
               },
             ].map((item, index) => (
-              <Card key={index} className="flex flex-col justify-between">
+              <Card
+                key={index}
+                className="flex flex-col justify-between backdrop-blur-md bg-black/70 border-none text-white hover:bg-black/80 transition-all duration-300 hover:scale-105"
+              >
                 <CardHeader>
-                  <CardTitle>{item.title}</CardTitle>
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">{item.icon}</span>
+                    <CardTitle>{item.title}</CardTitle>
+                  </div>
                 </CardHeader>
                 <CardContent>
-                  <p>{item.description}</p>
+                  <p className="text-gray-300">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -152,10 +173,10 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-12 bg-secondary/50">
+      <section className="py-12 bg-gradient-to-b from-background via-secondary/50 to-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-semibold mb-8 text-center">
-            My Projects 📖
+          <h2 className="text-3xl font-semibold mb-8 text-center flex items-center justify-center gap-2">
+            My Projects <span className="text-2xl">📖</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
@@ -166,7 +187,7 @@ export default function Portfolio() {
                 rel="noopener noreferrer"
                 className="group transition-transform duration-300 hover:scale-[1.02]"
               >
-                <Card className="overflow-hidden h-full transition-colors duration-300 hover:bg-accent cursor-pointer">
+                <Card className="overflow-hidden h-full transition-all duration-300 hover:bg-accent/80 hover:shadow-xl cursor-pointer backdrop-blur-sm bg-background/80">
                   <div className="relative w-full h-48">
                     <Image
                       src={project.image}
@@ -179,12 +200,18 @@ export default function Portfolio() {
                     <CardTitle className="group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                    <CardDescription className="line-clamp-2">
+                      {project.description}
+                    </CardDescription>
                   </CardHeader>
                   <CardFooter>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="secondary">
+                        <Badge
+                          key={tagIndex}
+                          variant="secondary"
+                          className="bg-primary/10 hover:bg-primary/20 transition-colors duration-300"
+                        >
                           {tag}
                         </Badge>
                       ))}
