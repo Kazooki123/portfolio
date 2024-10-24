@@ -130,7 +130,7 @@ const SceneContainer: React.FC = () => {
   );
 };
 
-export const PortfolioScene: React.FC = () => {
+export const GlobeScene: React.FC = () => {
   return (
     <div className="w-full h-[600px] bg-black/20">
       <Canvas
@@ -169,4 +169,4 @@ export const PortfolioScene: React.FC = () => {
   );
 };
 
-export default PortfolioScene;
+export default GlobeScene;
