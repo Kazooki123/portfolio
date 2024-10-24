@@ -82,7 +82,7 @@ const Ground = () => {
 };
 
 // Floating Project Card
-const ProjectCard = ({ position, title, description, onClick }) => {
+const ProjectCard = ({ position, title, onClick }) => {
   const cardRef = useRef();
 
   useFrame((state) => {
