@@ -4,12 +4,35 @@ import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Text, Cloud, Stars } from '@react-three/drei';
 import * as THREE from 'three';
+import { Group, Mesh } from 'three';
+
+// Define interfaces for props and project data
+interface ProjectData {
+  title: string;
+  description: string;
+  link: string;
+}
+
+interface TreeProps {
+  position: [number, number, number];
+  scale?: number;
+}
+
+interface ProjectCardProps {
+  position: [number, number, number];
+  title: string;
+  description: string;
+  onClick: () => void;
+}
+
+interface NaturePortfolioSceneProps {
+  projects: ProjectData[];
+}
 
 // Procedural Tree Component
-const Tree = ({ position, scale = 1 }) => {
-  const treeRef = useRef();
+const Tree: React.FC<TreeProps> = ({ position, scale = 1 }) => {
+  const treeRef = useRef<Group>(null);
   
-  // Generate random rotation for variety
   const rotation = useMemo(() => [
     0,
     Math.random() * Math.PI * 2,
@@ -18,20 +41,17 @@ const Tree = ({ position, scale = 1 }) => {
 
   useFrame((state) => {
     if (treeRef.current) {
-      // Gentle swaying motion
       treeRef.current.rotation.y = rotation[1] + Math.sin(state.clock.getElapsedTime() * 0.5) * 0.05;
     }
   });
 
   return (
     <group ref={treeRef} position={position} scale={scale}>
-      {/* Tree trunk */}
       <mesh position={[0, 2, 0]}>
         <cylinderGeometry args={[0.2, 0.4, 4]} />
         <meshStandardMaterial color="#4a3219" roughness={0.8} />
       </mesh>
       
-      {/* Tree foliage layers */}
       <mesh position={[0, 4, 0]}>
         <coneGeometry args={[1.5, 3, 8]} />
         <meshStandardMaterial color="#2d5a27" roughness={0.8} />
@@ -49,10 +69,9 @@ const Tree = ({ position, scale = 1 }) => {
 };
 
 // Ground with procedural height variation
-const Ground = () => {
-  const groundRef = useRef();
+const Ground: React.FC = () => {
+  const groundRef = useRef<Mesh>(null);
   
-  // Create vertices for uneven ground
   const geometry = useMemo(() => {
     const geo = new THREE.PlaneGeometry(100, 100, 32, 32);
     const pos = geo.attributes.position;
@@ -60,7 +79,6 @@ const Ground = () => {
     for (let i = 0; i < pos.count; i++) {
       const x = pos.getX(i);
       const z = pos.getZ(i);
-      // Create gentle hills
       pos.setY(i, Math.sin(x * 0.3) * 0.5 + Math.sin(z * 0.2) * 0.5);
     }
     
@@ -82,8 +100,8 @@ const Ground = () => {
 };
 
 // Floating Project Card
-const ProjectCard = ({ position, title, onClick }) => {
-  const cardRef = useRef();
+const ProjectCard: React.FC<ProjectCardProps> = ({ position, title, onClick }) => {
+  const cardRef = useRef<Group>(null);
 
   useFrame((state) => {
     if (cardRef.current) {
@@ -124,14 +142,12 @@ const ProjectCard = ({ position, title, onClick }) => {
   );
 };
 
-const Forest = () => {
-  // Generate random positions for trees
+const Forest: React.FC = () => {
   const treePositions = useMemo(() => {
-    const positions = [];
+    const positions: [number, number, number][] = [];
     for (let i = 0; i < 50; i++) {
       const x = (Math.random() - 0.5) * 50;
       const z = (Math.random() - 0.5) * 50;
-      // Keep trees away from the center where projects will be
       if (Math.sqrt(x * x + z * z) > 15) {
         positions.push([x, 0, z]);
       }
@@ -152,8 +168,8 @@ const Forest = () => {
   );
 };
 
-const NaturePortfolioScene = ({ projects }) => {
-  const handleProjectClick = (project) => {
+const NaturePortfolioScene: React.FC<NaturePortfolioSceneProps> = ({ projects }) => {
+  const handleProjectClick = (project: ProjectData) => {
     window.open(project.link, '_blank');
   };
 
@@ -163,11 +179,9 @@ const NaturePortfolioScene = ({ projects }) => {
         camera={{ position: [0, 15, 30], fov: 60 }}
         shadows
       >
-        {/* Environment */}
         <color attach="background" args={['#87CEEB']} />
         <fog attach="fog" args={['#87CEEB', 30, 100]} />
         
-        {/* Lighting */}
         <ambientLight intensity={0.5} />
         <directionalLight
           position={[10, 20, 10]}
@@ -177,15 +191,13 @@ const NaturePortfolioScene = ({ projects }) => {
           shadow-mapSize-height={2048}
         />
 
-        {/* Scene Elements */}
         <Ground />
         <Forest />
         <Stars radius={100} depth={50} count={5000} factor={4} />
         <Cloud position={[-10, 15, -10]} speed={0.2} opacity={0.5} />
         <Cloud position={[10, 12, -15]} speed={0.2} opacity={0.5} />
 
-        {/* Project Cards */}
-        {projects?.map((project, index) => {
+        {projects?.map((project: ProjectData, index: number) => {
           const angle = (index / projects.length) * Math.PI * 2;
           return (
             <ProjectCard
@@ -202,7 +214,6 @@ const NaturePortfolioScene = ({ projects }) => {
           );
         })}
 
-        {/* Controls */}
         <OrbitControls
           enableZoom={true}
           enablePan={false}
