@@ -30,7 +30,7 @@ export default function Contact() {
         className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-8 shadow-2xl w-full max-w-md"
       >
         <h1 className="text-4xl font-bold text-white mb-6 text-center">
-          Contact Me
+          Contact Me?
         </h1>
         <div className="flex justify-center space-x-4 mb-8">
           {[
