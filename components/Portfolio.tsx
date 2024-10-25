@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/themes/theme-toggle";
 import NaturePortfolioScene from './NaturePortfolioScene';
 import GlobeScene from './GlobeScene';
+import SkillsVisualization from './SkillsVisualization';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -171,6 +172,16 @@ export default function Portfolio() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Skill Chart Section */}
+      <section className="py-12 bg-gradient-to-b from-background via-secondary/50 to-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-semibold mb-8 text-center flex items-center justify-center gap-2">
+            Skill Radar Chart
+          </h2>
+          <SkillsVisualization />
         </div>
       </section>
 
