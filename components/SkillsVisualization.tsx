@@ -47,12 +47,6 @@ const SkillsVisualization = () => {
             stroke="#8884d8"
             fill="#8884d8"
             fillOpacity={0.6}
-            onMouseEnter={(_: any, __: any, event: { activeTooltipIndex: any; }) => {
-              const index = event?.activeTooltipIndex;
-              if (index !== undefined) {
-                setActiveSkill(skills[index]);
-              }
-            }}
             onMouseLeave={() => setActiveSkill(null)}
           />
           <Tooltip />

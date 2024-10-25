@@ -181,7 +181,9 @@ export default function Portfolio() {
           <h2 className="text-3xl font-semibold mb-8 text-center flex items-center justify-center gap-2">
             Skill Radar Chart
           </h2>
-          <SkillsVisualization />
+          <div className="flex justify-center items-center">
+            <SkillsVisualization />
+          </div>
         </div>
       </section>
 
@@ -247,7 +249,6 @@ export default function Portfolio() {
           <GlobeScene />
         </div>
       </section>
-
     </div>
   );
 }
