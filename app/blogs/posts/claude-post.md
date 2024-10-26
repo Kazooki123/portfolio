@@ -1,5 +1,5 @@
 ---
-title: Claude's New Feature Might Be Scary
+title: 'Claude's New Feature Might Be Scary'
 date: '2024-10-26'
 excerpt: 'A dive into Claude's new feature where it can access your computer'
 ---
