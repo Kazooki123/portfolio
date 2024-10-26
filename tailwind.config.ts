@@ -6,7 +6,7 @@ const config: Config = {
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx,mdx}",
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
@@ -60,6 +60,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("@tailwindcss/typography"), ("tailwindcss-animate")],
 };
 export default config;
