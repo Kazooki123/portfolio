@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from './themes/theme-toggle'
 
 interface CountdownRenderProps {
     days: number;
@@ -60,6 +61,7 @@ export default function Funding() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/20 to-background p-8">
       {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} />}
+      <ThemeToggle />
       <div className="max-w-2xl mx-auto space-y-8">
         <Card>
           <CardHeader>

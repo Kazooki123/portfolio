@@ -178,11 +178,13 @@ export default function Portfolio() {
       {/* Skill Chart Section */}
       <section className="py-12 bg-gradient-to-b from-background via-secondary/50 to-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-semibold mb-8 text-center flex items-center justify-center gap-2">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 md:mb-8 text-center flex items-center justify-center gap-2">
             Skill Radar Chart
           </h2>
           <div className="flex justify-center items-center">
-            <SkillsVisualization />
+            <div className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+              <SkillsVisualization />
+            </div>
           </div>
         </div>
       </section>
