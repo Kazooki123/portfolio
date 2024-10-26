@@ -68,7 +68,7 @@ export default function Funding() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="text-center space-y-2">
-              <h2 className="text-xl font-semibold">Countdown to My Birthday</h2>
+              <h2 className="text-xl font-semibold">Countdown to My 18th Birthday!</h2>
               <Countdown date={birthday} renderer={renderer} />
             </div>
             <div className="space-y-2">
