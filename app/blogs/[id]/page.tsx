@@ -1,4 +1,5 @@
 import { getAllPostIds, getPostData } from '@/lib/markdown';
+import { ThemeToggle } from "@/components/themes/theme-toggle";
 
 export async function generateStaticParams() {
   const ids = getAllPostIds();
@@ -12,6 +13,7 @@ export default async function BlogPost({ params }: { params: { id: string } }) {
   
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
+      <ThemeToggle />
       <header className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
         <time className="text-gray-500">{post.date}</time>
