@@ -13,6 +13,7 @@ import GlobeScene from './GlobeScene';
 import SkillsVisualization from './SkillsVisualization';
 import Image from "next/image";
 import Link from "next/link";
+import GitHubStats from "./GitHubStats";
 
 interface Project {
   title: string;
@@ -238,6 +239,16 @@ export default function Portfolio() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* GitHub Stats */}
+      <section className="relative py-16 bg-gradient-to-b from-black via-background to-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-semibold mb-8 text-center flex items-center justify-center gap-2">
+            My Github Stats 📚
+          </h2>
+          <GitHubStats />
         </div>
       </section>
 

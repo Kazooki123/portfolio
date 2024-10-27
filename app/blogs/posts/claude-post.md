@@ -1,10 +1,10 @@
 ---
-title: 'Claude's New Feature Might Be Scary'
-date: '2024-10-26'
-excerpt: 'A dive into Claude's new feature where it can access your computer'
+title: "Claude New Feature Is Scary"
+date: "2024-10-27"
+excerpt: "A dive into Claude's new feature where it can access your computer"
 ---
 
-## Introduction
+# Introduction
 
 Recently, Anthropic, the artificial intelligence company behind Claude AI, introduced an update that has sparked significant debate in the tech community. This update includes a new tool allowing Claude AI to interact with, and potentially control, a user's computer via its API. While some view this as an exciting leap forward in AI capabilities, others are concerned about the privacy and security implications.
 
