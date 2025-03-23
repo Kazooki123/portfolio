@@ -34,13 +34,6 @@ export default function Portfolio() {
       link: "https://starlopost.vercel.app/",
     },
     {
-      title: "StarloSearch",
-      description: "A Search Engine fully made in HTML, JS and CSS",
-      image: "/starlosearch.png",
-      tags: ["Search", "Engine", "HTML", "JavaScript", "CSS"],
-      link: "https://starlosearch.vercel.app/index.html",
-    },
-    {
       title: "LunarDB",
       description: "A NoSQL Cache, in memory database written in C++ and Ruby",
       image: "/lunardb.png",
