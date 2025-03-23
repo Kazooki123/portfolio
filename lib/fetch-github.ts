@@ -29,11 +29,7 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
   
   try {
     // First, verify the user exists and get basic profile
-    const userResponse = await fetch(`${GITHUB_API}/users/${username}`, {
-      headers: {
-        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-      },
-    });
+    const userResponse = await fetch(`${GITHUB_API}/users/${username}`);
 
     if (!userResponse.ok) {
       console.error('User fetch failed:', await userResponse.text());
@@ -46,11 +42,6 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
     // Get user repos with error handling
     const reposResponse = await fetch(
       `${GITHUB_API}/users/${username}/repos?per_page=100&sort=updated`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-      }
     );
 
     if (!reposResponse.ok) {
@@ -64,11 +55,6 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
     // Get pull requests with error handling
     const prsResponse = await fetch(
       `${GITHUB_API}/search/issues?q=author:${username}+type:pr`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-      }
     );
 
     if (!prsResponse.ok) {
@@ -80,11 +66,6 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
 
     const eventsResponse = await fetch(
       `${GITHUB_API}/users/${username}/events/public`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-      }
     );
 
     if (!eventsResponse.ok) {
@@ -119,11 +100,6 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
       
       const langResponse = await fetch(
         `${GITHUB_API}/repos/${username}/${repo.name}/languages`,
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-          },
-        }
       );
 
       if (!langResponse.ok) {
