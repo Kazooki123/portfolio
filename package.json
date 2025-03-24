@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^12.3.0",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.0.1",
@@ -29,8 +30,9 @@
     "lucide-react": "^0.453.0",
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.2",
-    "next": "14.2.15",
+    "next": "15.2.0",
     "next-themes": "^0.3.0",
+    "nodemailer": "^6.10.0",
     "react": "^18",
     "react-confetti": "^6.1.0",
     "react-countdown": "^2.3.6",
@@ -38,12 +40,14 @@
     "recharts": "^2.13.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.169.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
