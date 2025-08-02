@@ -35,17 +35,17 @@ export default function Portfolio() {
     },
     {
       title: "LunarDB",
-      description: "A NoSQL Cache, in memory database written in C++ and Ruby",
+      description: "A NoSQL Cache, in memory database written in Rust.",
       image: "/lunardb.png",
-      tags: ["Database", "C++", "NoSQL", "Multimodal"],
+      tags: ["Database", "Rust", "NoSQL", "Multimodal"],
       link: "https://github.com/Kazooki123/lunardb",
     },
     {
       title: "Crabby",
-      description: "A New and Modern Programming Language written in C",
+      description: "A New and Modern Programming Language written in Rust",
       image: "/crabbylogo.jpg",
-      tags: ["Language", "C", "Programming", "Modern"],
-      link: "https://github.com/Kazooki123/crabby",
+      tags: ["Language", "Rust", "Programming", "Modern"],
+      link: "https://github.com/crabby-lang/crabby",
     },
     {
       title: "Typeify",
