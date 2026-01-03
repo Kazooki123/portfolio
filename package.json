@@ -30,7 +30,7 @@
     "lucide-react": "^0.453.0",
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.2",
-    "next": "15.2.0",
+    "next": "15.2.8",
     "next-themes": "^0.3.0",
     "nodemailer": "^6.10.0",
     "react": "^18",
